@@ -4,11 +4,10 @@ let TAGS = {};
 let TAG_MAP = {};
 let TAG_NAME_MAP = {};
 let TAG_CATEGORIES = {
-	Rarity: [28, 17, 14, 11],
+	Class: [1, 2, 3, 4, 5, 6, 7, 8],
 	Position: [9, 10],
-	// Class: [1, 4, 8, 6, 2, 3, 5, 7], // aceship order
-	Class: [8, 1, 3, 2, 6, 4, 5, 7], // in-game order
-	Affix: [15, 16, 19, 21, 23, 20, 22, 24, 26, 12, 13, 27, 25, 18],
+	Rarity: [28, 17, 14, 11],
+	Affix: [12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
 };
 const OP_NAME_SUBSTITUTIONS = {
 	"justice knight": "'justice knight'",
@@ -61,9 +60,9 @@ fetch(`${DATA_BASE[serverString]}/gamedata/excel/gacha_table.json`)
 			label.innerHTML = category;
 			let btns = document.createElement("td");
 			if (["Affix"].includes(category))
-				TAG_CATEGORIES[category].sort((a, b) =>
-					TAG_MAP[a].tagName.localeCompare(TAG_MAP[b].tagName),
-				);
+			{
+				// TAG_CATEGORIES[category].sort((a, b) => TAG_MAP[a].tagName.localeCompare(TAG_MAP[b].tagName), );
+			}
 			TAG_CATEGORIES[category].forEach((tagid) => {
 				TAG_MAP[tagid].tagCat = category;
 				let btn = document.createElement("div");
